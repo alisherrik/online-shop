@@ -1,0 +1,146 @@
+:root {
+  --bg: #f4efe7;
+  --surface: #fffaf4;
+  --accent: #bc5e2c;
+  --text: #1c1917;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.72), transparent 30%),
+    linear-gradient(160deg, var(--bg), #ffffff);
+  color: var(--text);
+  font-family: "Segoe UI", sans-serif;
+}
+
+.shell {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 24px 0 48px;
+}
+
+.topbar,
+.hero,
+.story {
+  display: grid;
+  gap: 20px;
+}
+
+.topbar {
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  padding: 20px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(18px);
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.nav a,
+.secondary-action,
+.menu-toggle {
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 999px;
+  padding: 10px 16px;
+  color: var(--text);
+  text-decoration: none;
+  background: white;
+}
+
+.hero,
+.story {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 24px;
+  padding: 28px;
+  border-radius: 32px;
+  background: var(--surface);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.hero h2,
+.feature-card h2 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 0.95;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: rgba(15, 23, 42, 0.62);
+}
+
+.hero-actions {
+  display: flex;
+  align-items: end;
+  justify-content: end;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.primary-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 14px 24px;
+  background: var(--accent);
+  color: white;
+  text-decoration: none;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.feature-card,
+.summary-panel {
+  padding: 22px;
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.footer {
+  margin-top: 24px;
+  color: rgba(15, 23, 42, 0.68);
+  text-align: center;
+}
+
+@media (max-width: 860px) {
+  .topbar,
+  .hero,
+  .story,
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .nav.is-open {
+    display: flex;
+  }
+
+  .hero-actions {
+    justify-content: start;
+  }
+}
